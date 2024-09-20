@@ -1,10 +1,20 @@
+const { Schema, model } = require('mongoose');
 
-// username - string, required, trimmed, unique
+const userSchema = new Schema(
+    {
 
-// email - string, required, unique, must match a valid email address?
+        // username - string, required, trimmed, unique
 
-// thoughts - array of _id values referencing the Thought model
+        // email - string, required, unique, must match a valid email address?
 
-// friends - Array of _id values referencing the User model (self-reference)
+        // thoughts - array of _id values referencing the Thought model
 
-// virtual called friendCount that retrieves length of friernds on query
+        // friends - Array of _id values referencing the User model (self-reference)
+
+        // virtual called friendCount that retrieves length of friernds on query
+
+    }
+)
+const User = model('user', userSchema);
+
+module.exports = User;
