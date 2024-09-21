@@ -1,10 +1,28 @@
+const mongoose = require('mongoose');
+const reactionSchema = require('./Reaction');
 
-// thoughtText - string, required, between 1 - 280 characters
+const thoughtSchema = new mongoose.Schema(
+    {
 
-// createdAt - date, default to current, use getter method to format timestamp on query
+        // thoughtText - string, required, between 1 - 280 characters
 
-// username (author) - string, required
+        // createdAt - date, default to current, use getter method to format timestamp on query
 
-// reactions (replies) - array of nested documents created with reactionSchema
+        // username (author) - string, required
 
-// Virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
+        // reactions (replies) - array of nested documents created with reactionSchema
+        // reactions: [reactionSchema],
+
+        // Virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
+
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
+    },
+);
+
+const Thought = mongoose.model('thought', thoughtSchema);
+
+module.exports = Thought;

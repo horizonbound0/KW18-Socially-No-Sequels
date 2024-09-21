@@ -1,10 +1,21 @@
+const mongoose = require('mongoose');
 
-// reactionId - Mongoose's ObjectId data type, default to a new ObjectId
+const reactionSchema = new mongoose.Schema(
+    {
 
-// reactionBody - string, required, 280 character max
+        // reactionId - Mongoose's ObjectId data type, default to a new ObjectId
 
-// username - string, required
+        // reactionBody - string, required, 280 character max
 
-// createdAt - Date, set default value to the current timestamp, use getter to format the timestamp on query
+        // username - string, required
 
-// this is a subdocument schema in the thought model
+        // createdAt - Date, set default value to the current timestamp, use getter to format the timestamp on query
+
+        // this is a subdocument schema in the thought model
+
+    },
+);
+
+const Reaction = mongoose.model('reaction', reactionSchema);
+
+module.exports = Reaction;
