@@ -1,3 +1,4 @@
+const router = require('express').Router();
 
 // GET all thoughts
 // GET thought by _id
@@ -9,3 +10,5 @@
 
 // DELETE a thought by _id
 // DELETE a reaction from a thought
+
+module.exports = router;

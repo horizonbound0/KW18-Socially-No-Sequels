@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 const reactionSchema = require('./Reaction');
 
-const thoughtSchema = new Schema(
+const thoughtSchema = new mongoose.Schema(
     {
 
         // thoughtText - string, required, between 1 - 280 characters
@@ -11,7 +11,7 @@ const thoughtSchema = new Schema(
         // username (author) - string, required
 
         // reactions (replies) - array of nested documents created with reactionSchema
-        reactions: [reactionSchema],
+        // reactions: [reactionSchema],
 
         // Virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 
@@ -23,6 +23,6 @@ const thoughtSchema = new Schema(
     },
 );
 
-const Thought = model('thought', thoughtSchema);
+const Thought = mongoose.model('thought', thoughtSchema);
 
 module.exports = Thought;
